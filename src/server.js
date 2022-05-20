@@ -3,6 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import configViewEngine from "./config/viewEngine";
 import initWebRoutes from "./routes/web";
+import connectionDB from "./config/connectDB";
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 configViewEngine(app);
 initWebRoutes(app);
+
+connectionDB();
 
 let port = process.env.PORT || 6969;
 

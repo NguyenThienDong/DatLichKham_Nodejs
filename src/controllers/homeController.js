@@ -1,5 +1,14 @@
-const getHomePage = (req, res) => {
-  return res.render("home");
+const db = require("../models");
+
+const getHomePage = async (req, res) => {
+  try {
+    let data = await db.User.findAll();
+    return res.render("home", {
+      data: JSON.stringify(data),
+    });
+  } catch (err) {
+    console.log({ err });
+  }
 };
 
 const getAboutPage = (req, res) => {
