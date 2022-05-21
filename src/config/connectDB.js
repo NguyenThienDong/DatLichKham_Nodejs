@@ -14,7 +14,7 @@ const { DB_NAME, DB_USER_NAME, DB_USER_PASSWORD } = process.env;
 // });
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize("db_test", "root", null, {
+const sequelize = new Sequelize(DB_NAME, DB_USER_NAME, DB_USER_PASSWORD, {
   host: "localhost",
   dialect: "mysql" /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */,
   logging: false,
