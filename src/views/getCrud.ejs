@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get crud</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .btn-add {
+        float: right;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+</style>
+<body>
+    <a href="/crud">
+        <button class="btn-add">
+            Add user
+        </button>
+    </a>
+    <table style="width:100%">
+        <tr>
+            <th>Email</th>
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        <% data.forEach(function(item) { %>
+            <tr>
+                <td><%= item.email%></td>
+                <td><%= item.firstName%></td>
+                <td><%= item.lastName%></td>
+                <td><%= item.address%></td>
+                <td><%= item.phoneNumber%></td>
+                <td><%= item.roleId%></td>
+                <td>
+                    <a href="/edit-crud?id=<%= item.id%>">Edit</a>
+                    <a href="/delete-crud?id=<%= item.id%>">Delete</a>
+                </td>
+            </tr>
+         <% }); %> 
+      </table>
+</body>
+</html>
